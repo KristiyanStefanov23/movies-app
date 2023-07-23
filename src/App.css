@@ -1,38 +1,101 @@
-.App {
-  text-align: center;
+/* #region defaults */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    --first-color: #1c1919;
+    --icons-color: #6f28f3;
+    --text-color: #080710;
+    --text-color-alt: #a3a3a3;
+    --text-color-light: #fff;
+    --container-color: #fff;
+
+    --body-color: #f3f3f3;
+    --body-font: 'Poppins', arial;
+    --biggest-font-size: 2.25rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.876rem;
+    --small-font-size: 0.813rem;
+    --smaller-font-size: 0.75rem;
+    --icon-size: 1.2rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@media screen and (min-width: 768px) {
+    :root {
+        --biggest-font-size: 4rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: 0.876rem;
+        --smaller-font-size: 0.813rem;
+    }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+*,
+::before,
+::after {
+    box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+body {
+    background: var(--body-color);
+    padding: 0;
+    margin: 0;
+    font-family: var(--body-font) !important;
+    line-height: 1.6;
+    color: var(--text-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+main {
+    height: 100vh;
 }
+
+h1 {
+    font-size: var(--h1-font-size);
+}
+
+h2 {
+    font-size: var(--h2-font-size);
+}
+
+h3 {
+    font-size: var(--h3-font-size);
+}
+
+h1,
+h2,
+h3,
+ul,
+p {
+    margin: 0;
+    color: var(--text-color);
+}
+
+svg {
+    font-size: var(--icon-size);
+    width: var(--icon-size);
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none !important;
+    color: var(--text-color-light);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+/* #endregion default */
+/* ^ Default properties ^ */
