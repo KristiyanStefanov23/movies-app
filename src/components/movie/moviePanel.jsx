@@ -3,29 +3,39 @@ import css from './moviePanel.module.css';
 import { Rating } from '../raiting';
 
 function MoviePanel({
-    release_date,
-    backdrop_path,
+    release_date: date,
+    poster_path: poster,
     title,
-    vote_average,
-    overview
+    vote_average: average,
+    overview,
+    genre_ids: genres,
+    genreList,
 }) {
     return (
         <div className={css.card}>
             <div className={css.posterImg}>
-                <MoviePoster htmlClassName={css.poster} posterPath={backdrop_path} size={400} />
+                <MoviePoster
+                    htmlClassName={css.poster}
+                    posterPath={poster}
+                    size={400}
+                />
             </div>
             <div className={css.info}>
                 <div className={css.title}>{title}</div>
+                <div className={css.genres}>
+                    {genres.map((id) => (
+                        <span key={id}>-{genreList[id]}-</span>
+                    ))}
+                </div>
                 <div className={css.props}>
                     <div className={css.overview}>{overview}</div>
                 </div>
                 <div className={css.vote}>
-                    <Rating rating={vote_average} />
-                    <div className={css.prop}>{release_date}</div>
+                    <Rating rating={average} />
+                    <div className={css.prop}>{date.slice(0, 4)}</div>
                 </div>
             </div>
         </div>
-
     );
 }
 

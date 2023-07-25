@@ -5,13 +5,19 @@ import axiosInstance from '../../utils/api';
 
 function Landing() {
     const [list, setList] = useState(1);
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(null);
+    const [genre, setGenre] = useState(null);
 
     const listOptions = ['now_playing', 'popular', 'top_rated', 'upcoming'];
 
     async function getListData() {
-        const response = await axiosInstance.get(`/movie/${listOptions[list]}`);
-        setData(response.data.results);
+        setData(null);
+        setGenre(null);
+        const movies = await axiosInstance.get(`/movie/${listOptions[list]}`);
+        const genreResp = await axiosInstance.get(`/genre/movie/list`);
+        const genres = genreResp.data.genres;
+        setData(movies.data.results);
+        setGenre(Object.fromEntries(genres.map((x) => [x.id, x.name])));
     }
 
     useEffect(() => {
@@ -19,10 +25,10 @@ function Landing() {
         return setData([]);
     }, [list]);
 
+    if (!data) return <span>Loading</span>;
     return (
         <main className={css.main}>
-            <h1>Welcome</h1>
-            <ul>
+            <ul className={css.nav}>
                 <li onClick={() => setList(0)}>Now Plaing</li>
                 <li onClick={() => setList(1)}>Popular</li>
                 <li onClick={() => setList(2)}>Top Rated</li>
@@ -30,7 +36,7 @@ function Landing() {
             </ul>
             <div className={css.movieList}>
                 {data.map((movie, i) => (
-                    <MoviePanel key={i} {...movie} />
+                    <MoviePanel key={i} {...movie} genreList={genre} />
                 ))}
             </div>
         </main>
