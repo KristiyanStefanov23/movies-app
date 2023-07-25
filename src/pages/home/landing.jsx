@@ -20,7 +20,7 @@ function Landing() {
     }, [list]);
 
     return (
-        <div>
+        <main className={css.main}>
             <h1>Welcome</h1>
             <ul>
                 <li onClick={() => setList(0)}>Now Plaing</li>
@@ -33,7 +33,7 @@ function Landing() {
                     <MoviePanel key={i} {...movie} />
                 ))}
             </div>
-        </div>
+        </main>
     );
 }
 

@@ -1,30 +1,31 @@
 import { MoviePoster } from '../image';
 import css from './moviePanel.module.css';
+import { Rating } from '../raiting';
 
 function MoviePanel({
-    original_language,
     release_date,
-    popularity,
     backdrop_path,
     title,
     vote_average,
-    vote_count,
+    overview
 }) {
     return (
         <div className={css.card}>
             <div className={css.posterImg}>
-                <MoviePoster posterPath={backdrop_path} size={500} />
+                <MoviePoster htmlClassName={css.poster} posterPath={backdrop_path} size={400} />
             </div>
             <div className={css.info}>
                 <div className={css.title}>{title}</div>
-                <div className={css.prop}>{release_date}</div>
-                <div className={css.prop}>{original_language}</div>
-                <div className={css.prop}>{popularity}</div>
+                <div className={css.props}>
+                    <div className={css.overview}>{overview}</div>
+                </div>
                 <div className={css.vote}>
-                    <div className={css.voteAvg}>{vote_average}</div>
+                    <Rating rating={vote_average} />
+                    <div className={css.prop}>{release_date}</div>
                 </div>
             </div>
         </div>
+
     );
 }
 
