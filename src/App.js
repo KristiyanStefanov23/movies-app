@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Landing } from './pages/home';
 import Favorites from './pages/favorites/favorites';
+import { Landing } from './pages/home';
 
 function App() {
     return (
