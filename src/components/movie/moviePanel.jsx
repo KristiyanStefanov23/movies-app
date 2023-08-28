@@ -21,17 +21,19 @@ const MoviePanel = ({
         </div>
         <div className={css.info}>
             <div className={css.title}>{title}</div>
-            <div className={css.genres}>
-                {genres.map((id) => (
-                    <span key={id}>-{genreList[id]}-</span>
-                ))}
-            </div>
-            <div className={css.props}>
-                <div className={css.overview}>{overview}</div>
-            </div>
-            <div className={css.vote}>
-                <Rating rating={average} />
-                <div className={css.prop}>{date.slice(0, 4)}</div>
+            <div>
+                <div className={css.genres}>
+                    {genres.map((id) => (
+                        <span key={id}>-{genreList[id]}-</span>
+                    ))}
+                </div>
+                <div className={css.props}>
+                    <div className={css.overview}>{overview}</div>
+                </div>
+                <div className={css.vote}>
+                    <Rating rating={average} />
+                    <div className={css.prop}>{date.slice(0, 4)}</div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,0 +1,37 @@
+.item span:hover {
+    background: #cccccc50;
+    cursor: pointer;
+}
+
+.item span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section::before {
+    content: '';
+    border: solid #f3f3f3;
+    border-width: 0 2px 2px 0;
+    display: block;
+    position: absolute;
+    top: calc(inherit - 10px);
+    right: 15px;
+    padding: 4px;
+    margin: 5px 0 5px 0;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.icon svg {
+    font-size: 20px;
+}
+
+.label {
+    width: 85%;
+}
+
+li.item ul {
+    width: 70%;
+    margin: 0 auto;
+}

@@ -1,21 +1,21 @@
 .card {
+    cursor: pointer;
     position: relative;
-    height: 400px;
-    width: 250px;
+    height: 336px;
+    width: 224px;
     margin: 20px;
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transform: translateZ(0);
     transition: all 0.25s ease-out;
-    background: rgba(0, 0, 0, 0.8);
 }
 
 .card:hover {
     transform: scale(1.05);
 }
 .card:hover .title {
-    margin-bottom: 50%;
+    margin-bottom: 30%;
     transition: all 0.2s ease-out;
 }
 .card:hover .poster {
@@ -35,12 +35,16 @@
 
 .info {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     bottom: 0;
+    height: 100%;
     width: 100%;
     color: white;
-    padding: 1.5rem 1rem 2rem;
+    padding: 1.5rem 1rem 0.5rem;
     max-height: 600px;
-    transform: translateY(calc(100% - 50px));
+    transform: translateY(calc(100%));
     overflow: hidden;
 }
 
