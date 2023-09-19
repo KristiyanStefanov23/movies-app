@@ -1,6 +1,28 @@
+.main {
+	overflow: hidden;
+	overflow-y: scroll;
+	height: 100%;
+}
+
+/* Handle */
+::-webkit-scrollbar {
+	background: #bc70e0aa;
+	width: 7px;
+	border-radius: 20px;
+}
+
+::-webkit-scrollbar-button {
+	display: none;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 20px;
+	background: #42036a;
+}
+
 .movieList {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
 }

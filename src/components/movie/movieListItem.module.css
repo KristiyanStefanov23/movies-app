@@ -1,0 +1,60 @@
+.item {
+	display: flex;
+	width: 90%;
+	margin: 15px auto;
+	height: 150px;
+}
+.item:hover {
+	background: #f3f3f350;
+}
+.info {
+	margin: auto 15px;
+	width: 100%;
+}
+.info h2 {
+	margin: 5px 0;
+}
+
+.genres {
+	display: flex;
+	flex-wrap: wrap;
+}
+.genres span {
+	margin-right: 10px;
+}
+.stack {
+	display: flex;
+	justify-content: space-between;
+}
+
+@media screen and (max-width > 600px) {
+	.info:hover {
+		margin-left: 55px;
+		transition: all ease-in-out 0.2s;
+	}
+	.item:hover {
+		width: 95%;
+		transition: all ease-in-out 0.2s;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.item {
+		font-size: 80%;
+		width: 99%;
+		margin: 10px 15px;
+		height: 100px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.item {
+		font-size: 70%;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.item {
+		font-size: 40%;
+	}
+}

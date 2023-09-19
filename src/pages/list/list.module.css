@@ -1,0 +1,24 @@
+.list {
+	background: linear-gradient(166deg, #550179cc 22%, #9001a2cc 66%);
+}
+
+.emptyMsg {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+	height: 70vh;
+}
+
+.emptyMsg h2 {
+	background: #cccccc50;
+	text-align: center;
+	padding: 20px;
+	border-radius: 20px;
+}
+
+.list {
+	overflow: hidden;
+	overflow-y: auto;
+	height: 100%;
+}

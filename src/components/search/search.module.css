@@ -1,0 +1,91 @@
+.inp {
+	outline: none;
+	width: 100%;
+	border: none;
+
+	background: #f3f3f350;
+	color: #f3f3f3;
+	border-radius: 20px;
+
+	padding: 5px 10px;
+	font-size: 1rem;
+}
+
+.inp::placeholder {
+	color: #f3f3f3;
+}
+
+.dropDown {
+	border-right: none;
+	position: fixed;
+	background: #1c022f;
+	width: 30%;
+	max-height: 500px;
+	box-shadow: 0 30px 30px rgba(0, 0, 0, 0.8);
+
+	overflow: hidden;
+	overflow-y: auto;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.dropDown li {
+	width: 100%;
+}
+
+.dropDown a {
+	display: flex;
+	align-items: flex-start;
+	width: 100%;
+	margin: 2px 0;
+}
+
+.dropDown > li > a:hover {
+	background: #600670;
+}
+
+.dropDown a img {
+	width: 50px;
+	margin-right: 5px;
+}
+
+.info {
+	width: 100%;
+	height: 65px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.genres {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.genres span {
+	margin: 0 3px;
+	font-size: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+	.inp {
+		font-size: 0.8rem;
+	}
+	.dropDown {
+		width: 60vw;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.dropDown {
+		width: 80vw;
+	}
+	.info {
+		font-size: 14px;
+	}
+	.genres {
+		flex-direction: column;
+	}
+}

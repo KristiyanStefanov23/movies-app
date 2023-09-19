@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import css from './minorNav.module.css';
 
-function MinorNavItem({ label, location }) {
-    return (
-        <Link className={css.item} to={location}>
-            {label}
-        </Link>
-    );
+function MinorNavItem({ label, location, onClick }) {
+	return (
+		<Link className={css.item} onClick={onClick} to={location}>
+			{label}
+		</Link>
+	);
 }
 
 export default MinorNavItem;

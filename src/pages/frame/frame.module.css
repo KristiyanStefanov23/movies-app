@@ -1,0 +1,116 @@
+.main {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 100vh;
+	color: #f7efef;
+	background-position: bottom;
+}
+
+.main > nav,
+.main > nav.shown {
+	z-index: 10;
+	width: 300px;
+	background: #3100526e;
+	box-shadow: 0 8px 32px 0 #1c012e5e;
+	backdrop-filter: blur(19px);
+	-webkit-backdrop-filter: blur(19px);
+	display: block; /* Initially show the side nav */
+	transition: width 0.3s ease-in-out;
+}
+
+.view {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.view > .hidden {
+	height: 0;
+	opacity: 0;
+}
+
+.hidden input {
+	display: none;
+}
+
+.view > nav {
+	transition: all 0.1s ease-in;
+	user-select: none;
+	z-index: 1;
+	height: 8%;
+	background: #1d023063;
+	box-shadow: 8px 8px 32px 0 #1c012e5e;
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+}
+
+.navLeft {
+	display: flex;
+	width: 35%;
+	align-items: center;
+}
+
+.navToggler {
+	display: none;
+	margin-right: 10px;
+}
+
+.holder {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 97%;
+	margin: auto;
+	height: 100%;
+}
+
+.outlet {
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+	.main > nav {
+		display: none;
+		position: absolute;
+	}
+	.main > nav.shown {
+		display: block;
+		transition: none;
+		transform: translate(0%);
+		opacity: 100%;
+		width: 50%;
+		height: 100%;
+		z-index: 120;
+	}
+	.navToggler {
+		display: block;
+	}
+}
+@media screen and (max-width: 600px) {
+	.navLeft {
+		width: 50%;
+	}
+	.main > nav.shown {
+		width: 100%;
+		height: 100vh;
+	}
+	.navToggler {
+		margin: 0;
+		width: 25%;
+	}
+	.name {
+		font-size: 0.8rem;
+	}
+}
+
+@media screen and (max-width: 300px) {
+	.name {
+		font-size: 0.7rem;
+	}
+	.navLeft input {
+		font-size: 0.6rem;
+	}
+}

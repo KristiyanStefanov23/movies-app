@@ -1,0 +1,129 @@
+.main {
+	height: 100%;
+	background: rgb(85, 1, 121);
+	background: linear-gradient(166deg, #550179cc 22%, #9001a2cc 66%);
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	z-index: -1;
+}
+
+.banner {
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 0 20%;
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	filter: grayscale(70%);
+	padding: 1%;
+}
+
+.checkbox {
+	width: 223px;
+	height: 60px;
+	background-color: #0a1929;
+	border-radius: 30px;
+	position: relative;
+	color: #f3f3f3;
+	overflow: hidden;
+}
+
+#checkbox_toggle {
+	display: none;
+}
+
+.checkbox .toggle {
+	width: 45.5%;
+	height: 85%;
+	position: absolute;
+	border-radius: 30px;
+	left: 5px;
+	cursor: pointer;
+	background: linear-gradient(40deg, #9001a2cc, #550179cc 70%);
+	transition: 0.4s;
+	box-shadow: -0px -0px 10px #8983f7, -0px -0px 3px #8983f7;
+}
+
+.checkbox .slide {
+	width: 105%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	cursor: pointer;
+}
+
+.checkbox .slide .text {
+	font-size: 16px;
+	font-weight: 700;
+	cursor: pointer;
+	z-index: 0;
+}
+
+.check {
+	display: none;
+}
+
+.check:checked + .checkbox .slide .toggle {
+	transform: translateX(110%);
+}
+
+.movieList {
+	margin: auto;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: nowrap;
+	width: 84vw;
+	overflow-x: scroll;
+}
+
+.movieList::-webkit-scrollbar {
+	border-radius: 20px;
+	height: 10px;
+}
+
+.movieList > a {
+	flex: 0 0 212px;
+}
+
+.trending {
+	padding: 1%;
+}
+
+@media screen and (max-width: 1200px) {
+	.headers h2,
+	.headers h3 {
+		background: #09438584;
+	}
+	.movieList > a {
+		flex: 0 0 141px;
+	}
+	.movieList {
+		width: 98vw;
+	}
+
+	.headers {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+	}
+	.banner {
+		background-size: 200%;
+	}
+	.checkbox {
+		width: calc(223px / 1.1);
+		height: calc(60px / 1.1);
+	}
+}
+
+@media screen and (max-width: 300px) {
+	.headers {
+		justify-content: flex-start;
+		font-size: 1rem;
+	}
+}
