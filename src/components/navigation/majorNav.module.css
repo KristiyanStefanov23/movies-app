@@ -1,12 +1,14 @@
-.item > div:hover {
-	background: #cccccc50;
-	cursor: pointer;
-}
-
 .item a {
+	width: 90%;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+}
+.item a:hover {
+	background: #cccccc50;
+	cursor: pointer;
+	border-radius: 20px;
+	padding: 0 2px;
 }
 
 .section::before {
@@ -29,15 +31,18 @@
 	-webkit-transform: rotate(225deg);
 }
 
-.icon svg {
+.icon {
+	display: flex;
+	align-items: flex-end;
 	font-size: 20px;
+	height: 100%;
 }
 
 .label {
 	margin-left: 10%;
 }
 
-li.item ul {
+.item ul {
 	width: 70%;
 	margin: 0 auto;
 }

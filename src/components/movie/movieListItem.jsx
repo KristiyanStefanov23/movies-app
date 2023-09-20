@@ -3,10 +3,11 @@ import css from './movieListItem.module.css';
 import { useState, useEffect } from 'react';
 import { getMovieData } from '../../utils/api';
 import { MoviePoster } from '../image';
-import { Rating } from '../raiting';
+import { Rating } from '../rating';
 
 function MovieListItem({ id }) {
 	const [movie, setMovie] = useState({});
+	const title = movie?.title?.split(' ').join('-');
 	useEffect(() => {
 		const getData = async () => {
 			const movieData = await getMovieData(id);
@@ -16,10 +17,7 @@ function MovieListItem({ id }) {
 	}, [id]);
 	return (
 		<div>
-			<Link
-				to={`/overview/${id}-${movie?.title?.split(' ').join('-')}`}
-				className={css.item}
-			>
+			<Link to={`/overview/${id}-${title}`} className={css.item}>
 				<MoviePoster posterPath={movie.poster_path} size={200} />
 				<div className={css.info}>
 					<h2>{movie.title}</h2>

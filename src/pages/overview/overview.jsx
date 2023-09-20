@@ -6,7 +6,8 @@ import { BiBookmarkPlus as BookmarkAdd } from 'react-icons/bi';
 import { BiBookmarkMinus as BookmarkRemove } from 'react-icons/bi';
 import css from './overview.module.css';
 import { bookmarks, history } from '../../utils/function';
-import { Rating } from '../../components/raiting';
+import { Rating } from '../../components/rating';
+import { Loader } from '../../components/loader';
 
 const regexId = /^(\d+)-[A-Za-z]+/;
 function Overview() {
@@ -31,7 +32,7 @@ function Overview() {
 		getData();
 		history.add(id);
 	}, [id, urlId]);
-	if (!movie) return;
+	if (!movie) return <Loader />;
 	return (
 		<div className={css.main}>
 			<div className={css.portrait}>
@@ -70,13 +71,15 @@ function Overview() {
 							<span>Adult content:</span>{' '}
 							{movie.adult ? 'Yes' : 'No'}
 						</div>
-						<div className={css.portraitItem}>
-							<span>Budget:</span>
-							{movie?.budget
-								?.toString()
-								.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}{' '}
-							$
-						</div>
+						{!!movie.budget && (
+							<div className={css.portraitItem}>
+								<span>Budget:</span>
+								{movie?.budget
+									?.toString()
+									.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}{' '}
+								$
+							</div>
+						)}
 					</div>
 				</div>
 			</div>

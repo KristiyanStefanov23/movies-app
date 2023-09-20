@@ -1,29 +1,25 @@
 import { MoviePoster } from '../image';
 import css from './moviePanel.module.css';
-import { Rating } from '../raiting';
+import { Rating } from '../rating';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-const MoviePanel = ({
+function MoviePanel({
 	id,
 	release_date: date,
 	poster_path: poster,
-	title,
+	title: movieTitle,
 	vote_average: average,
 	overview,
 	genre_ids: genres,
 	genreList,
-}) => {
+}) {
 	const [hasImage, setHasImage] = useState(true);
-	if (!genreList) {
-		console.error('No genre list provided!');
-		return <div></div>;
-	}
+	const title = movieTitle?.split(' ').join('-');
+
+	if (!genreList) return;
 	return (
-		<Link
-			to={`/overview/${id}-${title.split(' ').join('-')}`}
-			className={css.card}
-		>
+		<Link to={`/overview/${id}-${title}`} className={css.card}>
 			<div
 				className={css.posterImg}
 				style={{ background: !hasImage ? '#000' : '' }}
@@ -36,7 +32,7 @@ const MoviePanel = ({
 				/>
 			</div>
 			<div className={css.info}>
-				<div className={css.title}>{title}</div>
+				<div className={css.title}>{movieTitle}</div>
 				<div>
 					<div className={css.genres}>
 						{genres.map((id) => (
@@ -54,6 +50,6 @@ const MoviePanel = ({
 			</div>
 		</Link>
 	);
-};
+}
 
 export default MoviePanel;

@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 function MajorNavItem({ Icon, label, list = [], linkTo }) {
 	const [listVisible, setListVisible] = useState(true);
 	function handleClick() {
-		if (!list.length) return;
+		if (list.length < 1) return;
 		setListVisible(!listVisible);
 	}
 
 	return (
 		<li className={css.item}>
 			<div
-				className={`${!!list.length ? css.section : ''} ${
+				className={`${list.length > 0 ? css.section : ''} ${
 					!!listVisible && css.listShown
 				}`}
 			>
@@ -21,7 +21,7 @@ function MajorNavItem({ Icon, label, list = [], linkTo }) {
 					<span className={css.label}>{label}</span>
 				</Link>
 			</div>
-			{!!list.length && (
+			{list.length > 0 && (
 				<ul hidden={!listVisible}>
 					{list.map((Item, i) => (
 						<li key={i}>{Item}</li>

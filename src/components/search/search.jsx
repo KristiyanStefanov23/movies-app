@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import { fetchGenres, searchQuery } from '../../utils/api';
-import css from './search.module.css';
+import { useState } from 'react';
+import { searchQuery } from '../../utils/api';
 import { MoviePoster } from '../image';
 import { Link } from 'react-router-dom';
+import css from './search.module.css';
+import { Rating } from '../rating';
 
 function Search() {
 	const [results, setResults] = useState([]);
-	const [genres, setGenres] = useState(null);
 
 	const handleInputChange = async (e) => {
 		const searchTerm = e.target.value;
@@ -14,6 +14,7 @@ function Search() {
 			setResults([]);
 			return;
 		}
+
 		try {
 			const data = await searchQuery(searchTerm);
 			setResults(data);
@@ -22,22 +23,9 @@ function Search() {
 		}
 	};
 
-	useEffect(() => {
-		const getGenres = async () => {
-			try {
-				const fetchedGenres = await fetchGenres();
-				setGenres(fetchedGenres);
-			} catch (error) {
-				console.error('Error fetching genres:', error);
-			}
-		};
-		getGenres();
-	}, []);
-
 	return (
 		<div>
 			<input
-				pattern=''
 				className={css.inp}
 				type='text'
 				placeholder='Search for movies...'
@@ -57,20 +45,7 @@ function Search() {
 								size={200}
 							/>
 							<div className={css.info}>
-								<div>
-									{movie.title}
-									{/* <Rating rating={movie.vote_average} /> */}
-								</div>
-								<div className={css.genres}>
-									{movie.genre_ids.map((genreId, idx) => (
-										<span key={idx}>{genres[genreId]}</span>
-									))}
-									<span style={{ marginLeft: 'auto' }}>
-										{movie.release_date
-											.slice(2)
-											.replaceAll('-', '/')}
-									</span>
-								</div>
+								<div className={css.title}>{movie.title}</div>
 							</div>
 						</Link>
 					</li>

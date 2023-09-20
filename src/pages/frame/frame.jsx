@@ -1,7 +1,5 @@
-import frameCss from './frame.module.css';
-import sideNavCss from './sideNav.module.css';
 import { Link, Outlet } from 'react-router-dom';
-import Search from '../../components/search/search';
+import { Search } from '../../components/search';
 import { HiOutlineRocketLaunch, HiOutlineTrophy } from 'react-icons/hi2';
 import { FiAward } from 'react-icons/fi';
 import { IoDiamondOutline } from 'react-icons/io5';
@@ -9,6 +7,8 @@ import { FaCircleDot } from 'react-icons/fa6';
 import { MajorNavItem, MinorNavItem } from '../../components/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { RxHamburgerMenu } from 'react-icons/rx';
+
+import css from './frame.module.css';
 
 function Frame() {
 	const [showNav, setShowNav] = useState(true);
@@ -26,7 +26,6 @@ function Frame() {
 
 			setShowNav(el.scrollTop < lastScrollY);
 			timer = setTimeout(function () {
-				console.log(1);
 				setLastScrollY(el.scrollTop);
 			}, 100);
 		});
@@ -40,21 +39,17 @@ function Frame() {
 			style={{
 				backgroundImage: `url(${process.env.PUBLIC_URL}/media/bg.jpg)`,
 			}}
-			className={frameCss.main}
+			className={css.main}
 		>
-			<nav className={!sideNavHidden ? frameCss.shown : ''}>
-				<div onMouseLeave={resetNav} className={sideNavCss.panel}>
-					<div onClick={resetNav} className={sideNavCss.closeBtn}>
+			<nav className={!sideNavHidden ? css.shown : ''}>
+				<div onMouseLeave={resetNav} className={css.panel}>
+					<div onClick={resetNav} className={css.closeBtn}>
 						x
 					</div>
-					<Link
-						onClick={resetNav}
-						to={'/'}
-						className={sideNavCss.logo}
-					>
+					<Link onClick={resetNav} to={'/'} className={css.logo}>
 						<span>TaleTwist</span>
 					</Link>
-					<ul onClick={resetNav} className={sideNavCss.movieLists}>
+					<ul onClick={resetNav} className={css.movieLists}>
 						<MajorNavItem
 							linkTo={'/new'}
 							label={'New Releases'}
@@ -76,7 +71,7 @@ function Frame() {
 							Icon={IoDiamondOutline}
 						/>
 					</ul>
-					<ul className={sideNavCss.collections}>
+					<ul className={css.collections}>
 						<MajorNavItem
 							label={'My Collection'}
 							Icon={FaCircleDot}
@@ -96,25 +91,25 @@ function Frame() {
 					</ul>
 				</div>
 			</nav>
-			<div className={frameCss.view}>
-				<nav className={!showNav ? frameCss.hidden : ''}>
-					<div className={frameCss.holder}>
-						<div className={frameCss.navLeft}>
+			<div className={css.view}>
+				<nav className={!showNav ? css.hidden : ''}>
+					<div className={css.holder}>
+						<div className={css.navLeft}>
 							<RxHamburgerMenu
-								className={frameCss.navToggler}
+								className={css.navToggler}
 								size={25}
 								onClick={() => setSideNavHidden((old) => !old)}
 							/>
 							<Search />
 						</div>
-						<div className={frameCss.profile}>
-							<span className={frameCss.name}>
+						<div className={css.profile}>
+							<span className={css.name}>
 								Hi, Kristiyan Stefanov
 							</span>
 						</div>
 					</div>
 				</nav>
-				<div ref={outletRef} className={frameCss.outlet}>
+				<div ref={outletRef} className={css.outlet}>
 					<Outlet />
 				</div>
 			</div>

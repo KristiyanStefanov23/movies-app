@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { MoviePanel } from '../../components/movie';
 import css from './home.module.css';
 import { fetchGenres, fetchTrending } from '../../utils/api';
+import { Loader } from '../../components/loader';
 
 function Home() {
 	const [genres, setGenres] = useState(null);
@@ -29,7 +30,7 @@ function Home() {
 		};
 		fetchMovies();
 	}, [trendingPeriod]);
-	if (!movies.length) return;
+	if (!movies.length) return <Loader />;
 	return (
 		<div className={css.main}>
 			<div

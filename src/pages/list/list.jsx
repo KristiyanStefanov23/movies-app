@@ -1,15 +1,11 @@
-import MovieListItem from '../../components/movie/movieListItem';
+import { MovieListItem } from '../../components/movie';
 import css from './list.module.css';
 
 function List({ list }) {
-	console.log(list.get());
 	if (!list.get().length)
 		return (
 			<div className={css.emptyMsg}>
-				<h2>
-					Nothing to see here... <br /> Start by bookmarking some
-					movies
-				</h2>
+				<h2>Nothing to see here... yet</h2>
 			</div>
 		);
 	return (

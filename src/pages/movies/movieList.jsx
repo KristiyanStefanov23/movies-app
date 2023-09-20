@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import css from './movieList.module.css';
 import { MoviePanel } from '../../components/movie';
 import { fetchGenres } from '../../utils/api';
+import { Loader } from '../../components/loader';
 
 function MovieList({ list }) {
 	const [movies, setMovies] = useState([]);
@@ -20,7 +21,7 @@ function MovieList({ list }) {
 		if (fetching) return; //prevent multiple requests for the same page
 		setFetching(true);
 
-		const newMovies = await list(nextPage);
+		const newMovies = await list(nextPage); //gets the movies requested from the props
 		setMovies((prevMovies) => [...prevMovies, ...newMovies]);
 		setNextPage(nextPage + 1);
 
@@ -41,12 +42,13 @@ function MovieList({ list }) {
 	}, []);
 	//handle list changes
 	useEffect(() => {
+		fetchMovies();
 		setMovies([]);
 		setNextPage(1);
-		fetchMovies();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [list]);
 
-	if (!movies) return <span>Loading</span>;
+	if (movies.length < 1) return <Loader />;
 	return (
 		<div className={css.main} onScroll={handleScroll}>
 			<div className={css.movieList}>

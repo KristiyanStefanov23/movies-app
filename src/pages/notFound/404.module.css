@@ -1,0 +1,20 @@
+.holder {
+	background: linear-gradient(166deg, #550179cc 22%, #9001a2cc 66%);
+	display: flex;
+	height: 100%;
+	width: 100vw;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	user-select: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+@media screen and (max-width: 700px) {
+	.holder {
+		position: relative;
+	}
+}

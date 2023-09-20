@@ -7,6 +7,7 @@
 .item:hover {
 	background: #f3f3f350;
 }
+
 .info {
 	margin: auto 15px;
 	width: 100%;
@@ -22,6 +23,7 @@
 .genres span {
 	margin-right: 10px;
 }
+
 .stack {
 	display: flex;
 	justify-content: space-between;

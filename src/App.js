@@ -12,6 +12,7 @@ import { Home } from './pages/Home';
 import { Frame } from './pages/frame';
 import { List } from './pages/list';
 import { bookmarks, history } from './utils/function';
+import { NotFound } from './pages/notFound';
 
 function App() {
 	return (
@@ -54,7 +55,7 @@ function App() {
 						index
 						element={<MovieList list={fetchTopRatedMovies} />}
 					></Route>
-					<Route path='/*' element={<h1>404</h1>}></Route>
+					<Route path='/*' element={<NotFound />}></Route>
 				</Route>
 			</Routes>
 		</Router>
